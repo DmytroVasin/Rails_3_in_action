@@ -2,3 +2,12 @@
 
 1. Rails 3 in action by RYAN BIGG and YEHUDA KATZ
 2. With twitter bootstrap rails
+
+== http://rails-3-in-action-book.herokuapp.com/
+
+Admin:
+    vasinvaleriy779@gmail.com
+    password
+
+To sign up new user: 
+  if you want register your own account - you must put your real email address
