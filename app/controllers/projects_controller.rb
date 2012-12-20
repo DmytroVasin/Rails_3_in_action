@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
   def update
     if @project.update_attributes(params[:project])
       flash[:seccuss] = "Project has been updated."
-      redirect_ro project_path(@project.id)
+      redirect_to project_path(@project.id)
     else
       flash[:error] = "Project has not been updated."
       render 'edit'
