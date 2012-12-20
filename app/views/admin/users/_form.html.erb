@@ -1,0 +1,33 @@
+<%= form_for [:admin, @user], :html => {:class => 'form-horizontal' } do |f| %>
+	<%= f.error_messages %>
+
+  <div class="control-group">
+      <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <%= f.email_field :email, :id => "inputEmail", :placeholder => "Email" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+      <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <%= f.password_field :password, :id => "inputPassword", :placeholder => "Password" %>
+      </div>
+    </div>
+  </div>
+  
+	<div class="control-group">
+	   <div class="controls">
+	      <label class="checkbox">
+	    		<%= f.check_box :admin %>  Is an admin?
+	    	</label>
+				<%= f.submit "Change", :class => 'btn'  %>
+	   </div>
+	</div>
+
+<% end %>

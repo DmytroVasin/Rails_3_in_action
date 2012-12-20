@@ -1,0 +1,4 @@
+== Book
+
+1. Rails 3 in action by RYAN BIGG and YEHUDA KATZ
+2. With HAML and twitter bootstrap rails

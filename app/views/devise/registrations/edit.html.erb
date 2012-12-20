@@ -1,0 +1,58 @@
+<%= link_to "Back", root_path , :class => 'btn btn-inverse btn-large btn_back'%>
+<legend><h3>Edit <%= resource_name.to_s.humanize %></h3></legend>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-horizontal'  }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="control-group">
+      <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <%= f.email_field :email, :id => "inputEmail", :placeholder => "Email" %>
+      </div>
+    </div>
+  </div>
+
+<i>(leave blank if you don't want to change it)</i><br />
+  <div class="control-group">
+      <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <%= f.password_field :password, :id => "inputPassword", :placeholder => "Password", :autocomplete => "off" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+      <%= f.label :password_confirmation, :class => "control-label" %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <%= f.password_field :password_confirmation, :id => "inputPasswordConfirmation", :placeholder => "Password Confirmation" %>
+      </div>
+    </div>
+  </div>
+
+ <i>(we need your current password to confirm your changes)</i><br />
+  <div class="control-group">
+      <%= f.label :current_password, :class => "control-label" %>
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <%= f.password_field :current_password, :id => "inputCurrentPassword", :placeholder => "Password" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="control-group">
+     <div class="controls">
+    <%= f.submit "Update", :class => 'btn'  %>
+     </div>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger'  %>

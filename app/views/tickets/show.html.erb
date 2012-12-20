@@ -1,0 +1,13 @@
+<div id='ticket'>
+	<blockquote>
+		<p><%= @ticket.title %></p>
+		<div class='simple_format'><%= simple_format(@ticket.description) %></div>
+		<small>Created by <%= @ticket.user.email %></small>
+	</blockquote>
+</div>
+<%= link_to 'back', project_path(@project.id), class: 'btn right_margin' %>
+<%= link_to "edit ticket", [:edit, @project, @ticket], class: 'btn btn-warning'  %>
+<!-- or you can use edit_project_ticket_path(@project, @ticket)  -->
+
+<%= link_to "Delete Ticket", [@project, @ticket], method: :delete,
+confirm: "Are you sure you want to delete this ticket?", class: 'btn btn-danger' %>
