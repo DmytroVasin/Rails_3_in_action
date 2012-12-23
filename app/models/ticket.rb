@@ -6,4 +6,8 @@ class Ticket < ActiveRecord::Base
   
   validates :title, presence: true
   validates :description, presence: true, length: { minimum: 10 }
+
+  def self.for(user)
+    user.admin? ? Project : Project.readable_by(user)
+  end
 end
