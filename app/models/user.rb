@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :tickets
+  has_many :permissions
   belongs_to :thing, polymorphic: true
 
   def to_s
