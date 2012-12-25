@@ -30,10 +30,13 @@
 	  </div>
 	</div>
 
+<% number = 0 %>
+<%= f.fields_for :assets do |asset| %>
 	<p>
-		<%= f.label :asset, "File" %>
-		<%= f.file_field :asset %>
+		<%= asset.label :asset, "File ##{number += 1}" %>
+		<%= asset.file_field :asset %>
 	</p>
+<% end %>
 
 	<div class="control-group">
 	   <div class="controls">
@@ -41,6 +44,3 @@
 	   </div>
 	</div>
 <% end %>
-
-
-
