@@ -15,6 +15,8 @@ RailsInAction::Application.routes.draw do
     end
   end
 
+  resources :files
+
   put '/admin/users/:user_id/permissions', :to => 'admin/permissions#update', :as => :update_user_permissions
 
 

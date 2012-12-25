@@ -5,6 +5,6 @@ class Asset < ActiveRecord::Base
   belongs_to :ticket
 
   has_attached_file :asset,
-                    :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
-                    :url => "/system/:attachment/:id/:style/:filename"
+                    :path => (Rails.root + "files/:id").to_s,
+                    :url => "/files/:id"
 end
