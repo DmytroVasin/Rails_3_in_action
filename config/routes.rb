@@ -15,6 +15,8 @@ RailsInAction::Application.routes.draw do
 
   namespace :admin do
     root :to => "base#index"
+    
+    resources :states
     resources :users do
       resources :permissions
     end
