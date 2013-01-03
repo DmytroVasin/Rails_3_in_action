@@ -6,7 +6,14 @@
 	</blockquote>
 </div>
 
-<%= link_to 'back', project_path(@project.id), class: 'btn right_margin' %>
+
+<%= render @ticket.state if @ticket.state %>
+
+
+<!-- <%= link_to 'back', project_path(@project.id), class: 'btn right_margin' %> -->
+<!-- @project.id not be exist... how i can create it in controller?  -->
+<%= link_to 'back', :back, class: 'btn right_margin' %>
+
 
 <%= authorized?("edit tickets", @project) do %>
 	<%= link_to "edit ticket", [:edit, @project, @ticket], class: 'btn btn-warning'  %>

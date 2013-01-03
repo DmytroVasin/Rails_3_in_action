@@ -10,8 +10,11 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment has been created."
       redirect_to [@ticket.project, @ticket]
     else
+      @states = State.all
       flash[:error] = "Comment has not been created."
-      redirect_to [@ticket.project, @ticket]
+      # redirect_to [@ticket.project, @ticket]
+      # @project.id not be exist... how i can create it in controller?
+      render :template => "tickets/show"
     end
   end
 
