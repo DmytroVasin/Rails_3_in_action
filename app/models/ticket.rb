@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :description, :title, :asset
+  attr_accessible :description, :title, :asset, :user
   attr_accessible :assets_attributes
 
   belongs_to :project
