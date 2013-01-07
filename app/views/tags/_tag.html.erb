@@ -1,0 +1,12 @@
+<span id='tag-<%= tag.name.parameterize %>' class='tag'>
+	<% if can?(:tag, @ticket.project) || current_user.admin? %>
+		<%= link_to "x",  remove_ticket_tag_path(@ticket, tag),
+										  :method => :delete,
+											:remote => true,
+											:id => "delete-#{ tag.name.parameterize }" %>
+	<% end %>
+
+	<!-- передаём первую переменную в @ticket.project - так как нам нужен доступ к @project в контроллере, 
+			 и :search будет доступен как params[:search] в контроллере -->
+	<%= link_to tag.name, search_project_tickets_path(@ticket.project, :search => "tag:#{tag.name}") %>
+</span>

@@ -13,7 +13,7 @@
 
 
 <ul id='tickets'>
-	<% @project.tickets.each do |ticket| %>
+	<% @tickets.each do |ticket| %>
 		<li>
 			<div>
 				<%= render ticket.state if ticket.state %>
@@ -21,10 +21,15 @@
 			
 			#<%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
 		</li>
-
-		
 	<% end %>
 </ul>
+
+<%= form_tag search_project_tickets_path(@project), :method => :get do %>
+	<%= label_tag "search" %>
+	<%= text_field_tag "search", params[:search], :placeholder => "tag:iteration_1 state:Open" %>
+	<%= submit_tag "Search" %>
+<% end %>
+
 
 <%= authorized?("create tickets".to_sym, @project) do %>
 	<%= link_to "New Tecket", new_project_ticket_path(@project.id), class: 'btn btn-success' %>

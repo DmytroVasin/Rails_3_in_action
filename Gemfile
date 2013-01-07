@@ -41,6 +41,7 @@ gem 'haml-rails'
 gem 'thin'
 gem 'cancan'
 gem 'paperclip'
+gem 'searcher'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

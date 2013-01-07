@@ -20,7 +20,12 @@ class TicketsController < ApplicationController
   def create
     @ticket = @project.tickets.build(params[:ticket])
     @ticket.user = current_user
-    if @ticket.save 
+    if @ticket.save
+      if can?(:tag, @ticket.project) || current_user.admin?
+        @ticket.tag!(params[:tags])
+        # -- ??
+      end
+      
       flash[:success] = "Ticket has been created"
       redirect_to [@project, @ticket]
       # or use:  project_ticket_path(@project, @ticket)
@@ -48,6 +53,11 @@ class TicketsController < ApplicationController
     @ticket.destroy
     flash[:success] = "Ticket has been deleted."
     redirect_to project_path(@project.id)
+  end
+
+  def search
+    @tickets = @project.tickets.search(params[:search])
+    render "projects/show"
   end
 
   private
@@ -88,6 +98,4 @@ class TicketsController < ApplicationController
     redirect_to @project
     end
   end
-
-
 end
