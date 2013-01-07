@@ -209,6 +209,7 @@ DEPENDENCIES
   jquery-rails
   paperclip
   pg
+  rack-test
   rails (= 3.2.9)
   rspec-rails (~> 2.5)
   sass-rails (~> 3.2.3)

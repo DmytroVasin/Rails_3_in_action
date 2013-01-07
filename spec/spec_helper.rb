@@ -6,6 +6,8 @@ require 'rspec/autorun'
 require "email_spec"
 require 'factory_girl'
 
+require "rack/test"
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -14,6 +16,10 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.include SeedHelpers
   config.include Devise::TestHelpers, :type => :controller
+
+  # config.include ApiHelper, :type => :api
+  
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

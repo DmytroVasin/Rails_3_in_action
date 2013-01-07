@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :admin
@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :tickets
   has_many :permissions
   # belongs_to :thing, polymorphic: true
+
+  before_save :ensure_authentication_token
 
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
