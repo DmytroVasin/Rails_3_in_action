@@ -15,4 +15,8 @@ class Project < ActiveRecord::Base
     user.admin? ? Project : Project.readable_by(user)
   end
 
+  def title
+    # 13.4 - second version of api does not work - why?...
+    name
+  end
 end

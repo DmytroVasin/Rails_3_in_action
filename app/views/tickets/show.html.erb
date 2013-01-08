@@ -2,7 +2,7 @@
 	<blockquote>
 		<p><%= @ticket.title %></p>
 		<div class='simple_format'><%= simple_format(@ticket.description) %></div>
-		<small>Created by <%= @ticket.user.email %></small>
+		<small>Created by <%= @ticket.user.display_name %></small>
 		<small><%= render @ticket.state if @ticket.state %></small>
 	</blockquote>
 </div>

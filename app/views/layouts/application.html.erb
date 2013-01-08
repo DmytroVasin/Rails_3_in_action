@@ -37,8 +37,10 @@
    						<% else %>
    						  	<li><%= link_to "Sign up", new_user_registration_path %></li>
       				  	<li class="divider-vertical"></li>
-      				  	<li><%= link_to "sign in", new_user_session_path %></li>
+      				  	<li><%= link_to "Sign in", new_user_session_path %></li>
       				  	<li class="divider-vertical"></li>
+                  <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :id => "sign_in_with_twitter" %></li>
+                  <li class="divider-vertical"></li>
    						<% end %>
     						<%= admins_only do %>
   								<li><%= link_to "Admin", admin_root_path %></li>

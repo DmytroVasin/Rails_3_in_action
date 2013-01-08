@@ -1,11 +1,20 @@
 RailsInAction::Application.routes.draw do
   namespace :api do
     namespace :v1 do
+      resources :projects do
+        resources :tickets
+      end
+    end
+  end
+
+  namespace :api do
+    namespace :v2 do
       resources :projects
     end
   end
 
-  devise_for :users, :controllers => { :registrations => "registrations" }
+
+  devise_for :users, :controllers => { :registrations => "registrations", :omniauth_callbacks => "users/omniauth_callbacks" }
     get '/awaiting_confirmation', :to => "users#confirmation", :as => 'confirm_user'
 
   root :to => "projects#index"
