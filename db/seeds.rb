@@ -6,21 +6,35 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-admin_user = User.create(:email => "admin@ticketee.com", :password => "password")
-admin_user.admin = true
-admin_user.confirm!
 
-Project.create(:name => "Ticketee Beta")
 
-State.create(:name => "New",
-             :background => "#85FF00",
-             :color => 'white',
-             :default => true )
+# admin_user = User.create(:email => "admin@ticketee.com", :password => "password")
+# admin_user.admin = true
+# admin_user.confirm!
 
-State.create(:name => "open",
-             :background => "#00CFFD",
-             :color => 'white' )
+# Project.create(:name => "Ticketee Beta")
 
-State.create(:name => "Closed",
-             :background => "black",
-             :color => 'white' )
+# State.create(:name => "New",
+#              :background => "#85FF00",
+#              :color => 'white',
+#              :default => true )
+
+# State.create(:name => "open",
+#              :background => "#00CFFD",
+#              :color => 'white' )
+
+# State.create(:name => "Closed",
+#              :background => "black",
+#              :color => 'white' )
+
+
+# proj = Project.last
+
+# 100.times do |i|
+#   a = proj.tickets.new(
+#         :description => 'Fake description',
+#         :user => User.find(3)
+#       )
+#   a.title = 'Fake ticket'
+#   a.save!
+# end
