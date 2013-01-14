@@ -45,9 +45,8 @@ gem 'searcher'
 
 gem "rack-test", :require => "rack/test"
 
-# gem "oa-oauth", :require => "omniauth/oauth"
-
 gem 'omniauth-twitter'
+gem 'omniauth-github'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

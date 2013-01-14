@@ -41,6 +41,8 @@
       				  	<li class="divider-vertical"></li>
                   <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :id => "sign_in_with_twitter" %></li>
                   <li class="divider-vertical"></li>
+                  <li><%= link_to "Sign in with GitHub", user_omniauth_authorize_path(:github), :id => "sign_in_with_github" %></li>
+                  <li class="divider-vertical"></li>
    						<% end %>
     						<%= admins_only do %>
   								<li><%= link_to "Admin", admin_root_path %></li>

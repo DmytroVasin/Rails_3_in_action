@@ -210,6 +210,9 @@ Devise.setup do |config|
                   'td8OB7fpg6pNb4n5LsVGKA',
                   'h7GQqyP0W5sKtllY4SXS4t2WOc1W1KIhBvI89jnrdL0'
 
+  config.omniauth :github,
+                  "3cdc3be8e82f985b9a5e",
+                  "1064675f2f39270bfd9964a519f23d92b605e57a"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
