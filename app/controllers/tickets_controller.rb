@@ -56,7 +56,14 @@ class TicketsController < ApplicationController
   end
 
   def search
-    @tickets = @project.tickets.search(params[:search])
+    if params[:search].present?
+      @tickets = @project.tickets.search(params[:search])
+      @tickets = @tickets.page(params[:page])
+    else
+      @tickets = @project.tickets.all
+      @tickets = @tickets.page(params[:page])
+    end
+
     render "projects/show"
   end
 
