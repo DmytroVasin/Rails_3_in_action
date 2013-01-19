@@ -1,4 +1,9 @@
-<p>
-	<%= label_tag :tags %>
-	<%= text_field_tag :tags, params[:tags] %>
-</p>
+<div class="control-group">
+    <%= label_tag :tags, "Tags:" %>
+  <div class="controls">
+    <div class="input-prepend">
+      <span class="add-on"><i class="icon-tag"></i></span>
+      <%= text_field_tag :tags, params[:tags], :placeholder => "separated by spaces", :autocomplete => "on" %>
+    </div>
+  </div>
+</div>

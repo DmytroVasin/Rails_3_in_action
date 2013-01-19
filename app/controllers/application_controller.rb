@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def find_states
-    @states = State.all
+    @states = State.order("id DESC").all
   end
 
   def authorize_admin!

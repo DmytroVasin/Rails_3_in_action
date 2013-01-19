@@ -1,12 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :authorize_admin!, :except => [:index, :show]
   before_filter :authenticate_user!, :only => [:index ,:show]
-  before_filter :find_project, only: [:show, :edit, :update, :destroy]
-
-  # caches_action :show, :cache_path => (proc do
-  #   # project_path(params[:id], :user_id => current_user.id)
-  #   project_path(params[:id]) + "/#{current_user.id}/#{params[:page] || 1}"
-  # end)
+  before_filter :find_project, :only => [:show, :edit, :update, :destroy]
 
   def index
     @projects = Project.for(current_user).all

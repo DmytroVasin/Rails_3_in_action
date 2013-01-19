@@ -62,3 +62,16 @@
     list-style: square;
 }
 
+#from_btn {
+  margin-bottom: 5px;
+}
+
+.from_top {
+  margin-top: 15px !important;
+}
+
+.field_to_add {
+  border: 1px solid #E5E2D5;
+  width: 500px;
+  height: 100px;
+}

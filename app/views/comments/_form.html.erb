@@ -1,4 +1,5 @@
-<strong>New comment</strong>
+<legend class='from_top'><h3>New comment:</h3></legend>
+
 <%= form_for [@ticket, @comment] do |f| %>
 
   <% if @comment.errors.any? %>
@@ -12,19 +13,22 @@
     </div>
   <% end %>
 
-	<p>
-		<%= f.label :text %><br>
-		<%= f.text_area :text %>
-	</p>
+  <%= f.text_area :text, :class => 'field_to_add', :placeholder => "Add some comment"  %>
 
   <% authorized?(:"change states", @project) do %>
-    <p>
-      <%= f.label :state_id %>
-      <%= f.select :state_id , @states.map { |s| [s.name, s.id] }, :selected => @ticket.state_id %>
-    </p>
-  
+    <div class="control-group">
+        <%= f.label :state_id, "State:",:class => "control-label" %>
+        <div class="controls">
+          <%= f.select :state_id , @states.map { |s| [s.name, s.id] }, :selected => @ticket.state_id %>
+      </div>
+    </div>
+
     <%= render :partial => "tags/form" %>
   <% end %>
 
-	<%= f.submit %>
+  <div class="control-group">
+     <div class="controls">
+    <%= f.submit "Create comment", :class => 'btn'  %>
+     </div>
+  </div>
 <% end %>

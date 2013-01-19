@@ -6,13 +6,9 @@ class TicketsController < ApplicationController
   before_filter :authorize_update!, :only => [:edit, :update]
   before_filter :authorize_delete!, :only => :destroy
 
-  cache_sweeper :tickets_sweeper, :only => [:create, :update, :destroy]
-
   def show
     @comment = @ticket.comments.build
     # @states = State.all
-    
-    fresh_when :last_modified => @ticket.updated_at, :etag => @ticket.to_s + current_user.id.to_s
   end
   
   def new
@@ -23,6 +19,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @project.tickets.build(params[:ticket])
+    @ticket.state_id = State.find_by_default(true).id
     @ticket.user = current_user
     if @ticket.save
       if can?(:tag, @ticket.project) || current_user.admin?
@@ -62,10 +59,9 @@ class TicketsController < ApplicationController
   def search
     if params[:search].present?
       @tickets = @project.tickets.search(params[:search])
-      @tickets = @tickets.page(params[:page])
+      @tickets = @tickets.page(params[:page]).per(5)
     else
-      @tickets = @project.tickets.all
-      @tickets = @tickets.page(params[:page])
+      @tickets = @project.tickets.page(params[:page])      
     end
 
     render "projects/show"

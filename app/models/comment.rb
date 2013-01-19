@@ -1,8 +1,8 @@
 class Comment < ActiveRecord::Base
   attr_accessible :text, :ticket_id, :user_id, :state_id
 
-  after_create :set_ticket_state
   before_create :set_previous_state
+  after_create :set_ticket_state
 
 
   belongs_to :user
