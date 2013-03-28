@@ -6,7 +6,7 @@
 == http://rails-3-in-action-book.herokuapp.com/
 
 Admin:
-    vasinvaleriy779@gmail.com
+    admin@ticketee.com
     password
 
 To sign up new user: 
